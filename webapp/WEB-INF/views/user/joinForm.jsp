@@ -8,6 +8,8 @@
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+
 </head>
 <body>
 	<div id="center-content">
@@ -30,7 +32,7 @@
 		      		</tr>
 		      		<tr>
 		      			<td></td>
-		      			<td id="tdMsg" colspan="2">사용할 수 있는 아이디 입니다.</td>
+		      			<td id="tdMsg" colspan="2"></td>
 		      		</tr> 
 		      		<tr>
 		      			<td><label for="txtPassword">패스워드</label> </td>
@@ -65,6 +67,88 @@
 	</div>
 
 </body>
+
+<script type="text/javascript">
+//페이지 로딩완료되어있는 상태에서 요청
+	//로딩완료후 요청
+	$(window).load(function(){
+		
+	});
+	
+	
+	//중복아이디체크 버튼이 클릭될때
+	$("#btnIdCheck").on("click",function(){
+	
+		var id = $("#txtId").val(); //입력한 아이디의 값-value
+		console.log(id);
+		
+		$.ajax({
+			url : "${pageContext.request.contextPath }/user/overCheck",
+			type : "post",
+			//contentType : "application/json",
+			data : ,
+			
+			//dataType : "json", //받는 데이터 형태가 json
+			success : function(result){ //테이터 자바스크립트 형태로 바뀌어서 옴
+				/*성공시 처리해야될 코드 작성*/
+				/*
+				console.log(result);
+				if(result == 'fail'){
+					$("#tdMsg").text("아이디 또는 비번을 확인해 주세요.");
+				}else{
+				}
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
+		
+		if( sessionId == id){
+			$("#tdMsg").text("다른 아이디로 가입해 주세요");
+			$("#txtId").val("");
+		}else{
+			$("#tdMsg").text("사용할 수 있는 아이디 입니다.");
+		}
+		
+	})
+	
+	
+	//회원가입 버튼을 눌렀을때
+	$("#btnJoin").on("click",function(){
+		console.log("회원가입버튼 클릭")
+		
+		var id = $("#txtId").val();
+		var idcheck = $("#btnIdCheck").val();
+		var pw = $("#txtPassword").val();
+		var name = $("#txtUserName").val();
+		var agree = $("#chkAgree").val();
+		
+		if(id == ""){
+			alert("아이디를 입력 해주세요");
+			return false;
+		}
+		if(idcheck == ""){
+			alert("아이디 중복체크를 해주세요");
+			return false;
+		}
+		if(pw == ""){
+			alert("비밀번호를 입력해주세요");
+			return false;
+		}
+		if(name == ""){
+			alert("이름을 입력 해주세요");
+			return false;
+		}
+		if(agree == ""){
+			alert("약관에 동의 해주세요");
+			return false;
+		}
+		
+	});
+
+
+</script>
 
 
 </html>

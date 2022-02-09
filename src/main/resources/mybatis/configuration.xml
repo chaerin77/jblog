@@ -5,7 +5,6 @@
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="mybatis/mappers/user.xml" />
-		<!-- <mapper resource="mybatis/mappers/guestbook.xml" /> 이런식으로 board.xml/ guestbook.xml /user.xml...늘어날수있음-->
+		<mapper resource="mybatis/mappers/user.xml"></mapper>
 	</mappers>
 </configuration> 

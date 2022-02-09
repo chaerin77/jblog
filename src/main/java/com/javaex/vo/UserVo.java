@@ -1,6 +1,6 @@
 package com.javaex.vo;
 
-public class userVo {
+public class UserVo {
 	
 	//필드
 	private int userNo;
@@ -10,12 +10,12 @@ public class userVo {
 	private String joinDate;
 	
 	//생성자
-	public userVo() {
+	public UserVo() {
 		
 	}
 	
 	
-	public userVo(int userNo, String id, String userName, String password, String joinDate) {
+	public UserVo(int userNo, String id, String userName, String password, String joinDate) {
 		super();
 		this.userNo = userNo;
 		this.id = id;
@@ -79,7 +79,7 @@ public class userVo {
 	//메소드 일반
 	@Override
 	public String toString() {
-		return "userVo [userNo=" + userNo + ", id=" + id + ", userName=" + userName + ", password=" + password
+		return "UserVo [userNo=" + userNo + ", id=" + id + ", userName=" + userName + ", password=" + password
 				+ ", joinDate=" + joinDate + "]";
 	}
 
