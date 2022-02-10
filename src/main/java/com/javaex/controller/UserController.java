@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.UserService;
+import com.javaex.vo.BlogVo;
 import com.javaex.vo.UserVo;
 
 @RequestMapping("/user")
@@ -24,16 +25,17 @@ public class UserController {
 	public String joinForm() {
 		System.out.println("UserController/joinForm");
 		
-		
 		return "user/joinForm";
 	}
+	
 	
 	//회원가입
 	@RequestMapping("/join")
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("UserController/join");
-		System.out.println(userVo);
 		userService.join(userVo);
+		
+		userService.blogId(userVo);
 		
 		return "user/joinSuccess";
 	}

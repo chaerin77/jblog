@@ -11,6 +11,14 @@
 	]]>
 	</insert>
 	
+	<!-- 회원가입시 입력한 아이디 블로그 테이블에 저장 -->
+	<insert id="blogId" parameterType="com.javaex.vo.BlogVo">
+	<![CDATA[
+		insert into blog(id, blogTitle)
+		values(#{id}, #{blogTitle})
+	]]>
+	</insert>
+	
 	<!-- 로그인 -->
 	<select id="login" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
 	<![CDATA[

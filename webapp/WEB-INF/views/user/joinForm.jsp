@@ -81,6 +81,7 @@
 		var id = $("#txtId").val(); //입력한 아이디의 값-value
 		console.log(id);
 		
+		
 		$.ajax({
 			url : "${pageContext.request.contextPath }/user/overCheck",
 			type : "post",
@@ -121,10 +122,10 @@
 			alert("아이디를 입력 해주세요");
 			return false;
 		}
-		if(idcheck == ""){ //아이디체크 버튼을 누르지 않았다면
+		/*if(idcheck == ""){ //아이디체크 버튼을 누르지 않았다면
 			alert("아이디 중복체크를 해주세요");
 			return false;
-		}
+		}*/
 		if(pw == ""){
 			alert("비밀번호를 입력해주세요");
 			return false;
