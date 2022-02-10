@@ -67,20 +67,30 @@
 	
 	$("#btnArea").on("click",function(){
 		
+		var id = $("#textId").val();
+		var pw = $("#textPassword").val();
+		
+		var inputData = {
+			id: id,
+			password: pw
+		}
+		
 		$.ajax({
 			url : "${pageContext.request.contextPath }/user/login",
 			type : "post",
 			//contentType : "application/json",
-			data : ,
+			data : inputData,
 			
-			//dataType : "json", //받는 데이터 형태가 json
+			dataType : "json", //받는 데이터 형태가 json
 			success : function(result){ //테이터 자바스크립트 형태로 바뀌어서 옴
 				/*성공시 처리해야될 코드 작성*/
-				/*
+				
 				console.log(result);
-				if(result == 'fail'){
+				if(result == "0"){
 					$("#tdMsg").text("아이디 또는 비번을 확인해 주세요.");
 				}else{
+					console.log("re")
+					window.location.href = "${pageContext.request.contextPath}/";
 				}
 			},
 			error : function(XHR, status, error) {

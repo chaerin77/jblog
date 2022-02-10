@@ -4,9 +4,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.UserService;
@@ -51,13 +51,13 @@ public class UserController {
 	//로그인
 	@ResponseBody	
 	@RequestMapping("/login")
-	public String login(@ModelAttribute UserVo userVo, HttpSession session) {//세션필요
+	public String login(@ModelAttribute UserVo userVo, HttpSession session, Model model) {//세션필요
 		System.out.println("UserController/login");
 		
 		String result = userService.login(userVo, session);//UserService의 결과 담김
+		model.addAttribute("result",result);
 		
 		return result;
-		
 	}
 	
 	//로그아웃

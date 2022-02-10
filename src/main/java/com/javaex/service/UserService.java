@@ -27,6 +27,7 @@ public class UserService {
 		UserVo authUser = userDao.login(userVo);//id,userName 갖고오기
 		
 		if(authUser != null) { //db에서 select한 값이 존재하면
+			session.setAttribute("authUser", authUser);//세션값넣기잊지말기
 			return "1";
 		}else{
 			return "0";
