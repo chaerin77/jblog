@@ -23,4 +23,10 @@ public class UserDao {
 		
 		return sqlSession.selectOne("user.login", userVo);
 	}
+	
+	//회원가입시 아이디중복체크
+	public UserVo overCheck(UserVo userVo) {
+		
+		return sqlSession.selectOne("overCheck", userVo);
+	}
 }

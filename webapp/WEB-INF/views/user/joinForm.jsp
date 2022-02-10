@@ -75,7 +75,6 @@
 		
 	});
 	
-	
 	//중복아이디체크 버튼이 클릭될때
 	$("#btnIdCheck").on("click",function(){
 	
@@ -86,30 +85,24 @@
 			url : "${pageContext.request.contextPath }/user/overCheck",
 			type : "post",
 			//contentType : "application/json",
-			data : ,
+			data : {id: id},
 			
-			//dataType : "json", //받는 데이터 형태가 json
-			success : function(result){ //테이터 자바스크립트 형태로 바뀌어서 옴
+			dataType : "json", 
+			success : function(result){ 
 				/*성공시 처리해야될 코드 작성*/
-				/*
+				
 				console.log(result);
-				if(result == 'fail'){
-					$("#tdMsg").text("아이디 또는 비번을 확인해 주세요.");
+				if(result == "1"){
+					$("#tdMsg").text("다른 아이디로 가입해 주세요");
+					$("txtId").val("");
 				}else{
+					$("#tdMsg").text("사용할 수 있는 아이디 입니다.");
 				}
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
-		});
-		
-		
-		if( sessionId == id){
-			$("#tdMsg").text("다른 아이디로 가입해 주세요");
-			$("#txtId").val("");
-		}else{
-			$("#tdMsg").text("사용할 수 있는 아이디 입니다.");
-		}
+		}); //아이디체크 눌렀을때 내가 입력한 아이디가 db에 저장되어있는지 판별해야함
 		
 	})
 	

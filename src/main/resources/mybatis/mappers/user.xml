@@ -3,6 +3,7 @@
 
 <mapper namespace="user">
 
+	<!-- 회원가입 -->
 	<insert id="join" parameterType="com.javaex.vo.UserVo">
 	<![CDATA[
 		insert into users
@@ -10,13 +11,22 @@
 	]]>
 	</insert>
 	
-	
+	<!-- 로그인 -->
 	<select id="login" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
 	<![CDATA[
 		select id,
 			   userName
 		from users
 		where id=#{id} and password=#{password}
+	]]>
+	</select>
+	
+	<!-- 회원가입시 아이디 중복 체크 -->
+	<select id="overCheck" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+	<![CDATA[
+		select id
+		from users
+		where id=#{id}	
 	]]>
 	</select>
 	

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.UserService;
@@ -73,12 +74,19 @@ public class UserController {
 		
 		return "redirect:/";
 	}
+
 	
 	//회원가입시 중복체크
-	//public String overCheck() {
+	@ResponseBody
+	@RequestMapping("/overCheck")
+	public String overCheck(@ModelAttribute UserVo userVo) {
+		System.out.println(userVo);
 		
+		String result = userService.overCheck(userVo);
 		
-	//}
+		return result;
+		
+	}
 	
 	
 }

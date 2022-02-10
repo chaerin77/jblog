@@ -20,6 +20,7 @@ public class UserService {
 		userDao.join(userVo);
 	}
 	
+	
 	//로그인
 	public UserVo login(UserVo userVo) {
 		
@@ -28,5 +29,21 @@ public class UserService {
 		
 		
 	}
+	
+	
+	//회원가입시 중복체크
+	public String overCheck(UserVo userVo) {
+			
+		UserVo saveId = userDao.overCheck(userVo);
+			
+		if(saveId == null) {
+			return "0";
+		}else {
+			return "1";
+		}
+		
+	}
+	
+	
 	
 }
