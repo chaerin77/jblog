@@ -18,7 +18,7 @@
 		<c:import url="/WEB-INF/views/includes/main-header.jsp"></c:import>
 		
 		<div id="loginForm">
-		
+			<!-- form지움 -->
 	      		<table>
 			      	<colgroup>
 						<col style="width: 100px;">
@@ -41,7 +41,7 @@
 		      		</tr> 
 		      	</table>
 	      		<div id="btnArea">
-					<button class="btn" >로그인</button>
+					<button class="btn">로그인</button>
 				</div>
 	      		
 			
@@ -67,14 +67,6 @@
 	
 	$("#btnArea").on("click",function(){
 		
-		/*
-		console.log("클릭")
-		if(${authUser == null}){
-			$("#tdMsg").text("아이디 또는 비번을 확인해 주세요.");
-		}*/
-		
-		/*
-
 		$.ajax({
 			url : "${pageContext.request.contextPath }/user/login",
 			type : "post",
@@ -94,9 +86,9 @@
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
 			}
-		});*/
+		});
 		// 로그인 성공 유무 판별
-		// 아이디, 비밀번호
+		// 필요데이터 내가 입력한 아이디, 비밀번호
 	
 	})
 	

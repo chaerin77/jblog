@@ -51,17 +51,13 @@ public class UserController {
 	//로그인
 	@ResponseBody	
 	@RequestMapping("/login")
-	public String login(@ModelAttribute UserVo userVo, HttpSession session) {
+	public String login(@ModelAttribute UserVo userVo, HttpSession session) {//세션필요
 		System.out.println("UserController/login");
 		
-		UserVo authUser = userService.login(userVo);//id,userName 갖고오기
-		if(authUser != null) {
-			System.out.println("로그인 성공");
-			return "1";
-		}else {
-			System.out.println("로그인 실패");
-			return "0"; 
-		}
+		String result = userService.login(userVo, session);//UserService의 결과 담김
+		
+		return result;
+		
 	}
 	
 	//로그아웃
