@@ -24,11 +24,24 @@ public class UserService {
 	//회원가입시 입력한 아이디 블로그테이블에 저장
 	public void blogId(UserVo userVo) {
 		//입력한 Id 가져와서 블로그 주소 blogTitle 만들기
+		/*1.
 		String id = userVo.getId();
 		String blogTitle = id +"의 블로그입니다.";
 		BlogVo blogVo = new BlogVo(id,blogTitle);
 		//id + 블로그입니다 -> userName +블로그입니다 로 고치도록 ->id값으로 userName갖고오는 쿼리문만들기
+		userDao.blogId(blogVo);*/
+		
+		//2.
+		String id = userVo.getId();
+		String userName = userVo.getUserName();
+		//System.out.println(userName); 확인용
+		String blogTitle = userName + "의 블로그입니다.";
+		//BlogVo blogVo = new BlogVo(id,blogTitle);
+		BlogVo blogVo = new BlogVo();
+		blogVo.setBlogTitle(blogTitle);
+		blogVo.setId(id);
 		userDao.blogId(blogVo);
+		
 	}
 	
 	
