@@ -7,9 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.service.BlogService;
-import com.javaex.vo.BlogVo;
 
 @Controller
 public class BlogController {
@@ -49,5 +50,16 @@ public class BlogController {
 		return "blog/admin/blog-admin-basic";//경로 잘쓰기
 	}
 	
+	//로고파일 업로드
+	@RequestMapping("/logoFileUpload")
+	public String logoFileUpload(@RequestParam("file") MultipartFile file, Model model) {
+		System.out.println("BlogController/logoFileUpload");
+	
+		//파일경로등.. blogservice에 restore메소드만들기
+		String saveName = blogService.restore(file);
+		model.addAttribute("saveName",saveName);
+		
+		return "redirect:/{id}";
+	}
 	
 }

@@ -8,6 +8,7 @@
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 
 </head>
 
@@ -26,7 +27,7 @@
 			<!-- //admin-menu -->
 			
 			<div id="admin-content">
-				<form action="" method="post" >
+				<form action="${pageContext.request.contextPath}/logoFileUpload" method="post" enctype="multipart/form-data">
 	 		      	<table id="admin-basic">
 	 		      		<colgroup>
 							<col style="width: 100px;">
@@ -63,4 +64,13 @@
 	</div>
 	<!-- //wrap -->
 </body>
+
+
+<script type="text/javascript">
+
+
+</script>
+
+
+
 </html>
