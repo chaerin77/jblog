@@ -6,11 +6,21 @@
 		<![CDATA[
 			select bl.id,
 				   us.userName,
-				   bl.blogTitle
+				   bl.blogTitle,
+				   bl.logoFile
 			from blog bl, users us
 			where bl.id = us.id
 			and us.id= #{id}	
 		]]>
 	</select>
+	
+	<update id="updateLogoTitle" parameterType="com.javaex.vo.BlogVo">
+		<![CDATA[
+			update blog
+			set blogTitle = #{blogTitle},
+			    logoFile = #{logoFile}
+			where id = #{id}	
+		]]>
+	</update>
 
 </mapper>

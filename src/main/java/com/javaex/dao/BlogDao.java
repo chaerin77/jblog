@@ -16,4 +16,9 @@ public class BlogDao {
 		return sqlSession.selectOne("blog.getUserName",id);
 	}
 	
+	public void updateLogoTitle(BlogVo blogVo) {
+	
+		sqlSession.update("blog.updateLogoTitle", blogVo);
+	}
+	
 }

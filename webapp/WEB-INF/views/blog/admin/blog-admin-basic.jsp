@@ -21,13 +21,13 @@
 		<div id="content">
 			<ul id="admin-menu" class="clearfix">
 				<li class="tabbtn selected"><a href="">기본설정</a></li>
-				<li class="tabbtn"><a href="">카테고리</a></li>
+				<li class="tabbtn"><a href="${pageContext.request.contextPath}/${blogVo.id}/admin/category">카테고리</a></li>
 				<li class="tabbtn"><a href="">글작성</a></li>
 			</ul>
 			<!-- //admin-menu -->
 			
 			<div id="admin-content">
-				<form action="${pageContext.request.contextPath}/logoFileUpload" method="post" enctype="multipart/form-data">
+				<form action="${pageContext.request.contextPath}/${blogVo.id}/logoFileUpload" method="post" enctype="multipart/form-data">
 	 		      	<table id="admin-basic">
 	 		      		<colgroup>
 							<col style="width: 100px;">
@@ -38,6 +38,7 @@
 			      			<td><input id="textTitle" type="text" name="blogTitle" value=""></td>
 			      		</tr>
 			      		<tr>
+			      			<!-- blogVo.logoFile ->null일때 기본로고이미지 아닐땐 해당이미지뜨도록하려면 -->
 			      			<td><label>로고이미지</label></td>
 			      			<td class="text-left"><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>   
 			      		</tr>      		

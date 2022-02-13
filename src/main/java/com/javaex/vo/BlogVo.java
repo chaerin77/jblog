@@ -13,12 +13,20 @@ public class BlogVo {
 		
 	}
 	
+	
+	public BlogVo(String id, String userName) {
+		super();
+		this.id = id;
+		this.userName = userName;
+	}
 
+	
+	/*
 	public BlogVo(String userName, String blogTitle) {
 		super();
 		this.userName = userName;
 		this.blogTitle = blogTitle;
-	}
+	}*/
 
 	
 	/*id/blogtitle
@@ -38,12 +46,22 @@ public class BlogVo {
 		this.logoFile = logoFile;
 	}*/
 
+
 	
 	public BlogVo(String id, String userName, String blogTitle) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.blogTitle = blogTitle;
+	}
+	
+
+	public BlogVo(String id, String userName, String blogTitle, String logoFile) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.blogTitle = blogTitle;
+		this.logoFile = logoFile;
 	}
 
 

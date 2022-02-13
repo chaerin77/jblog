@@ -79,4 +79,17 @@ public class BlogService {
 		
 		return saveName;
 	}
+	
+	/*
+	public void updateLogoTitle(BlogVo blogVo) {
+
+		blogDao.updateLogoTitle(blogVo);
+	}*/
+	
+	public void updateLogoTitle(BlogVo blogVo, Model model) {
+		
+		//model.addAttribute("bVo",blogVo);
+		
+		blogDao.updateLogoTitle(blogVo);
+	}
 }

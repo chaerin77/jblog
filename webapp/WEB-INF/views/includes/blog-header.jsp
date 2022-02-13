@@ -2,8 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 		<div id="header" class="clearfix">
-			<%-- <h1><a href="">${blogVo.userName}의 블로그입니다.</a></h1> --%>
-			<h1><a href="">${blogVo.blogTitle}</a></h1>
+			
+				<%-- 	<h1><a href="">${blogVo.userName}의 블로그입니다.</a></h1> --%>
+				<h1><a href="">${blogVo.blogTitle}</a></h1>
+			
 			<ul class="clearfix">
 				
 				<!-- 로그인 후 메뉴 -->
