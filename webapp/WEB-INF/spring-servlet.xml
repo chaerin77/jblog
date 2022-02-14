@@ -37,7 +37,7 @@ xmlns:mvc="http://www.springframework.org/schema/mvc">
 		<property name="defaultEncoding" value="utf-8" />
 	</bean>
 	
-	<!-- url매핑-->
-	<mvc:resources mapping="/upload/**" location="file:C:/javaStudy/upload/" />	
+	<!-- url매핑--><!-- 220214 경로 제대로쓰기 -->
+	<mvc:resources mapping="/blogupload/**" location="file:D:/javaStudy/blogupload/" />	
 
 </beans>

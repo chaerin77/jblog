@@ -113,7 +113,7 @@
 		console.log("회원가입버튼 클릭")
 		
 		var id = $("#txtId").val();
-		var idcheck = $("#btnIdCheck").val();//val 말고 다른거써야 사용할수있는 아이디입니다. 뜰때 체크완료되게끔..될텐데
+		//var idcheck = $("#btnIdCheck").val();//val 말고 다른거써야 사용할수있는 아이디입니다. 뜰때 체크완료되게끔..될텐데
 		var pw = $("#txtPassword").val();
 		var name = $("#txtUserName").val();
 		var agree = $("#chkAgree").val();
@@ -125,6 +125,10 @@
 		/*if(idcheck == ""){ //아이디체크 버튼을 누르지 않았다면
 			alert("아이디 중복체크를 해주세요");
 			return false;
+		}*/
+		/*
+		if($("#btnIdCheck").on("click",function(){})){
+			return true;
 		}*/
 		if(pw == ""){
 			alert("비밀번호를 입력해주세요");
@@ -140,7 +144,7 @@
 		}
 		
 	});
-
+	
 
 </script>
 
