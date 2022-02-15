@@ -8,6 +8,7 @@
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 
 </head>
 
@@ -19,8 +20,8 @@
 
 		<div id="content">
 			<ul id="admin-menu" class="clearfix">
-				<li class="tabbtn selected"><a href="">기본설정</a></li>
-				<li class="tabbtn"><a href="">카테고리</a></li>
+				<li class="tabbtn"><a href="${pageContext.request.contextPath}/${blogVo.id}/admin/basic">기본설정</a></li>
+				<li class="tabbtn selected"><a href="${pageContext.request.contextPath}/${blogVo.id}/admin/category">카테고리</a></li>
 				<li class="tabbtn"><a href="">글작성</a></li>
 			</ul>
 			<!-- //admin-menu -->
@@ -79,7 +80,7 @@
 		      		</tr>
 		      		<tr>
 		      			<td class="t">설명</td>
-		      			<td><input type="text" name="desc"></td>
+		      			<td><input type="text" name="desc" value=""></td>
 		      		</tr>
 		      	</table> 
 			
@@ -100,6 +101,40 @@
 	</div>
 	<!-- //wrap -->
 </body>
+
+<script type="text/javascript">
+	
+	//로딩된 후 요청
+	$(window).load(function(){
+		
+	});
+	
+	var content = $("[name='content']").val();
+	var desc = $("[name='desc']").val();
+	
+	
+	
+	//ajax사용하기
+	$.ajax({
+		//요청
+		url : "${pageContext.request.contextPath }/api/user/overCheck",
+		type : "post",
+		//contentType : "application/json",
+		data : userVo,
+		
+		//응답
+		dataType : "json",
+		success : function(inputId){
+			//성공시 처리해야될 코드 작성
+			message(inputId);
+			
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+</script>
 
 
 
