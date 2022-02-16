@@ -104,23 +104,28 @@
 
 <script type="text/javascript">
 	
-	//로딩된 후 요청
-	$(window).load(function(){
+	//
+	$(document).ready(function(){
 		
 	});
 	
-	var content = $("[name='content']").val();
+	var content = $("[name='name']").val();
 	var desc = $("[name='desc']").val();
 	
-	
+	var categoryVo = {
+			
+			cateName: name,
+			description: desc
+	};
+	//추가버튼을 눌렀을때....->addCate로 가게끔 
 	
 	//ajax사용하기
 	$.ajax({
 		//요청
-		url : "${pageContext.request.contextPath }/api/user/overCheck",
+		url : "${pageContext.request.contextPath }/{id}/addCate",
 		type : "post",
 		//contentType : "application/json",
-		data : userVo,
+		data : categoryVo,
 		
 		//응답
 		dataType : "json",
